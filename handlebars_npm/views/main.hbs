@@ -1,0 +1,14 @@
+{{> lovedChamps }}
+<br>
+{{> hatedChamps }}
+<br>
+
+<h2>Liste of my most suggested League champions</h2>
+
+{{#if listExists}}
+  <ul>
+    {{#each suggestedChamps}}
+      <li class={{this.line}}> {{this.name}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
