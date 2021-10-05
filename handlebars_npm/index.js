@@ -15,7 +15,7 @@ app.engine('hbs', handleBars({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 const fakeApi = () => [
   { name: 'Katarina', lane: 'midlaner'},
@@ -26,7 +26,18 @@ const fakeApi = () => [
 ];
 
 app.get('/', (req, res) => {
-  res.render('main', { suggested: fakeApi(), listExists: true });
+  res.render('main', { suggestedChamps: fakeApi(), listExists: true });
+});
+
+app.get('/datos', (req, res) => {
+  const datos = {
+    nombre: 'coder',
+    apellido: "perez",
+    edad: 29,
+    email: 'pepe@coderhouse.com',
+    telefono: 3302659
+  };
+  res.render('datos', datos);
 });
 
 const PORT = 8080;
