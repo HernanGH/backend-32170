@@ -53,6 +53,15 @@ app.delete('/users/:id', (request, response) => {
   response.json(user);
 });
 
+app.put('/users/:id', (request, response) => {
+  console.log('PUT un usuario por id');
+  const userToUpdateIndex = database.findIndex((item) => item.id === parseInt(request.params.id));
+  
+  database.splice(userToUpdateIndex, 1, request.body);
+
+  response.json(request.body);
+});
+
 app.listen(port, () => {
   console.log(`RUN http://localhost:${port}`);
 });
