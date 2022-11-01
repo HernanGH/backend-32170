@@ -16,7 +16,14 @@ userRouter.get('/', (request, res) => {
 
 userRouter.get('/:id', (request, response) => {
   const user = database.find((item) => item.id === parseInt(request.params.id));
-  response.json(user);
+  if (!user) {
+    response.json({
+      error: 'asdasdasd'
+    });
+
+  } else {
+    response.json(user);
+  }
 });
 
 userRouter.post('/', (request, response) => {

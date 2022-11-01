@@ -13,5 +13,10 @@ app.use('/users', logRequestInfo, userRouter);
 
 app.listen(port, () => {
   console.log(`RUN http://localhost:${port}`);
-});
+})
+
+app.on('error', (error) => {
+  
+})
+;
 
