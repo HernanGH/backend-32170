@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB APP</title>
+    <title>WEB APP - CLASE 9 - MOTORES DE PLANTILLA</title>
 </head>
 <body>
-  <span></span> <!-- para inyectar el resultado -->
+  <div></div> <!-- para inyectar el resultado -->
   <!-- incluir handlebars desde el CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
   <script>
-    const template = Handlebars.compile('<h1>{{nombre}}</h1>'); // compila la plantilla
+    const template = Handlebars.compile(`
+      <h1>Nombre: {{nombre}}</h1>
+      <h3>Edad: {{age}}</h3>
+      <ul class="people_list">
+        {{#each items}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    `); // compila la plantilla
     
-    const html = template({ nombre: 'coder' }); // genera el html
+    const html = template({ nombre: 'Coder House', age: 20, items: [1, 2, 3] }); // genera el html
     
-    document.querySelector('span').innerHTML = html; // inyecta el resultado en la vista
+    document.querySelector('div').innerHTML = html; // inyecta el resultado en la vista
   </script>
 
 </body>
