@@ -9,14 +9,42 @@
   </header>
   <main>
     <div class="jumbotron">
-      <h1>This is great</h1>
-      <p>Welcome to templating using EJS</p>
-      <h3><%= tagline %></h3>
-      <% mascots.forEach((mascotItem) => { %>
-        <li>
-          Name: <%= mascotItem.name %>
-        </li>
-      <% }) %>
+      <h1>Ingrese datos</h1>
+      <form action="/personas" method="post">
+        <input type="text" name="nombre" placeholder="Ingrese nombre" id="">
+        <input type="text" name="apellido" placeholder="Ingrese apellido" id="">
+        <input type="number" name="edad" placeholder="Ingrese edad" id="">
+        <input type="submit" value="Enviar">
+      </form>
+    </div>
+    <div class="jumbotron">
+      <h1>Historial</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>20</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
   <footer>

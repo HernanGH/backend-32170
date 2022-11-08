@@ -1,11 +1,27 @@
 const express = require('express');
 const app = express();
 
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // app.use('/static', express.static('public'));
 
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    // const personList = personaContenedor.getAll();
+    const personList = [];
+  res.render('pages/index', { list: personList });
+});
+
+app.post('/personas', (req, res) => {
+  console.log(req.body);
+  // personaContenedor.save(req.body);
+
+  res.redirect('/'); // TODO enviar datos del historial
+});
+
+app.get('/mascots', (req, res) => {
   const mascots = [
     { name: 'Sammy' },
     { name: 'Tux' },
@@ -15,7 +31,7 @@ app.get('/', (req, res) => {
   ];
   const tagline = 'Mascots';
 
-  res.render('pages/index', {
+  res.render('pages/mascots', {
     mascots,
     tagline
   });
