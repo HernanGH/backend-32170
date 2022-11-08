@@ -8,8 +8,8 @@ app.set('view engine', 'pug');
 
 app.get('/hello', (req, res) => {
   res.render('hello.pug', {
-    mensaje: 'usando pug JS en express',
-    descripcion: 'Pug es la raza de un perro'
+    mensaje: req.query.mensaje,
+    descripcion: req.query.descripcion
   });
 });
 
