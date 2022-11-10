@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Aplicación con Sockets</title>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
     <h1>Cliente Websockets</h1>
 </body>
-
+    <form id="form">
+        <input type="text" name="mensaje" id="mensaje">
+        <input type="submit" value="Enviar">
+    </form>
+    <ul id="chat"></ul>
 </html>
