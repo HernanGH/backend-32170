@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js" defer></script>
+  <link 
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+  >
+  <title>CHAT</title>
+</head>
+<body>
+  <h1>CHAT</h1>
+
+  <h4>Crear nuevo mensaje: </h4>
+  <form id="form">
+    <input placeholder='Autor' type="text" name="author" id="author">
+    <input placeholder='Mensaje' type="text" name="text" id="text">
+    <input type="submit" value="Enviar">
+  </form>
+
+  <h4>Mensajes:</h4>
+  <div id="messages"></div>
+</body>
+</html>
