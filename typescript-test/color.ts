@@ -1,6 +1,6 @@
-class RgbColor {
+class RgbColorGenerator {
 
-  create():string {
+  generate():string {
     const max:number = 256;
     const min:number = 0;
     const red:number = Math.floor(Math.random() * (max - min)) + min;
@@ -10,8 +10,8 @@ class RgbColor {
   }
 }
 
-const main = new RgbColor();
+const rgbColorGenerator = new RgbColorGenerator();
 
-const color:string = main.create();
+const color:string = rgbColorGenerator.generate();
 
 console.log({color});

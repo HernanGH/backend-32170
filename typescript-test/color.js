@@ -1,7 +1,8 @@
-var RgbColor = /** @class */ (function () {
-    function RgbColor() {
+"use strict";
+var RgbColorGenerator = /** @class */ (function () {
+    function RgbColorGenerator() {
     }
-    RgbColor.prototype.create = function () {
+    RgbColorGenerator.prototype.generate = function () {
         var max = 256;
         var min = 0;
         var red = Math.floor(Math.random() * (max - min)) + min;
@@ -9,8 +10,8 @@ var RgbColor = /** @class */ (function () {
         var blue = Math.floor(Math.random() * (max - min)) + min;
         return "RGB (" + red + "," + green + "," + blue + ")";
     };
-    return RgbColor;
+    return RgbColorGenerator;
 }());
-var main = new RgbColor();
-var color = main.create();
+var rgbColorGenerator = new RgbColorGenerator();
+var color = rgbColorGenerator.generate();
 console.log({ color: color });
