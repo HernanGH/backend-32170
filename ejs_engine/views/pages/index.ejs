@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <%- include('../partials/scripts'); %>
 </head>
 <body>
   <header>
@@ -9,11 +10,11 @@
   </header>
   <main>
     <div class="jumbotron">
-      <h1>Ingrese datos</h1>
-      <form action="/personas" method="post">
-        <input type="text" name="nombre" placeholder="Ingrese nombre" id="">
-        <input type="text" name="apellido" placeholder="Ingrese apellido" id="">
-        <input type="number" name="edad" placeholder="Ingrese edad" id="">
+      <h1>Ingrese Producto</h1>
+      <form action="/product" method="post" style="display: flex; flex-direction: column; width: 60vw; margin: 0 auto;">
+        <input type="text" name="title" placeholder="Ingrese titulo" id="">
+        <input type="number" name="price" placeholder="Ingrese precio" id="">
+        <input type="text" name="thumbnail" placeholder="Ingrese URL de la imagen" id="">
         <input type="submit" value="Enviar">
       </form>
     </div>
@@ -22,27 +23,12 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Edad</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>20</td>
-          </tr>
+        <tbody id="productList">
         </tbody>
       </table>
     </div>
