@@ -1,11 +1,12 @@
 const express = require('express');
+const createTables = require('./database/createTables');
 const { Server: SocketServer } = require('socket.io')
 const { Server: HttpServer } = require('http')
 
 const ProductContenedor = require('./src/contenedores/ProductContenedor');
 
 const app = express();
-
+createTables();
 const httpServer = new HttpServer(app);
 
 const io = new SocketServer(httpServer);
