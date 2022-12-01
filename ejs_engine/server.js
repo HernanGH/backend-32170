@@ -1,15 +1,16 @@
 const express = require('express');
-const createTables = require('./database/createTables');
 const { Server: SocketServer } = require('socket.io')
 const { Server: HttpServer } = require('http')
 
 const ProductContenedor = require('./src/contenedores/ProductContenedor');
+const productRouter = require('./src/routers/products');
 
 const app = express();
-createTables();
+
 const httpServer = new HttpServer(app);
 
 const io = new SocketServer(httpServer);
+
 
 io.on('connection', (socket) => {
   console.log('socket id: ', socket.id);
@@ -50,40 +51,7 @@ app.get('/product', (req, res) => {
   res.json(productContenedor.getAll());
 });
 
-
-app.get('/mascots', (req, res) => {
-  const mascots = [
-    { name: 'Sammy' },
-    { name: 'Tux' },
-    { name: 'Moby Dock' },
-    { name: 'Pug' },
-    { name: 'Firulaus' }
-  ];
-  const tagline = 'Mascots';
-
-  res.render('pages/mascots', {
-    mascots,
-    tagline
-  });
-});
-
-app.get('/about', (req, res) => {
-  res.render('pages/about', {});
-});
-
-// app.get('/datos', (req, res) => {
-//   res.render('pages/datos', {});
-// });
-
-app.get("/datos", (req, res) => {
-  res.render("pages/datos", {
-    min: req.query.min,
-    nivel: req.query.nivel,
-    max: req.query.max,
-    titulo: req.query.titulo,
-  });
-});
-
+app.use('/api/products', productRouter);
 
 const PORT = 8080;
 httpServer.listen(PORT, () => console.log(`Servidor iniciado en el puerto ${PORT}`));

@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "create-database": "node database/createTables.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "express": "^4.17.1",
     "knex": "^2.3.0",
     "mysql": "^2.18.1",
-    "socket.io": "^4.5.3"
+    "socket.io": "^4.5.3",
+    "sqlite3": "^5.1.2"
   }
 }
